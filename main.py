@@ -17,12 +17,12 @@ def increase_decrease_sizePen(n):
 
 # create main win
 root = Tk()
-root.geometry("1000x500")
+root.geometry("2000x500")
 root.title("White board")
 root.configure(bg="gray")
 
 # 1. create canvas
-canvas = Canvas(root,bg="white",width=800,height=500)
+canvas = Canvas(root,bg="white",width=1600,height=500)
 canvas.place(x=200,y=0)
 
 ## creat combobox change color
@@ -67,23 +67,28 @@ img_line_path = Image.open(r"C:\Users\Lenovo\Desktop\Nhatnam\WorkSpace\HelloPyth
 resize_img_line = img_line_path.resize((25,25),resample=Image.Resampling.LANCZOS)
 img_line = ImageTk.PhotoImage(resize_img_line)
 button_draw_line = Button(root,text="erase",background="white",image=img_line,command= lambda : setup_draw_pen(1,canvas,size_pen,combobox_change_color.get()))
-button_draw_line.place(x=29,y=355)
+button_draw_line.place(x=50,y=355)
 ## button draw RECTANGLE
 img_rec_path = Image.open(r"C:\Users\Lenovo\Desktop\Nhatnam\WorkSpace\HelloPython\HelloTkinter\ProjectTkinter\WhiteBoard\picture_button\rectangle_pic.png")
 resize_img_rec = img_rec_path.resize((25,25),resample=Image.Resampling.LANCZOS)
 img_rec = ImageTk.PhotoImage(resize_img_rec)
 button_draw_rec = Button(root,text="erase",background="white",image=img_rec,command= lambda : setup_draw_pen(2,canvas,size_pen,combobox_change_color.get()))
-button_draw_rec.place(x=87,y=355)
+button_draw_rec.place(x=100,y=355)
 ## button draw elip
 img_elip_path = Image.open(r"C:\Users\Lenovo\Desktop\Nhatnam\WorkSpace\HelloPython\HelloTkinter\ProjectTkinter\WhiteBoard\picture_button\elipse_pic.png")
 resize_img_elip = img_elip_path.resize((25,25),resample=Image.Resampling.LANCZOS)
 img_elip = ImageTk.PhotoImage(resize_img_elip)
 button_draw_elip = Button(root,text="erase",background="white",image=img_elip,command= lambda : setup_draw_pen(3,canvas,size_pen,combobox_change_color.get()))
-button_draw_elip.place(x=145,y=355)
+button_draw_elip.place(x=150,y=355)
 
 '''Mình thêm cái button release chỉ cần biết điểm đầu và cuối là điểm thả chuột, nếu dùng motion thì nó sẽ theo dỗi và vẽ nhiều khối liên tục'''
 
 # display logo LEODEV
+logo = Image.open(r"C:\Users\Lenovo\Desktop\Nhatnam\WorkSpace\HelloPython\HelloTkinter\ProjectTkinter\LeoDevText.png")
+resize_logo = logo.resize((125,50),resample=Image.Resampling.LANCZOS)
+img_logo = ImageTk.PhotoImage(resize_logo)
+button_logo = Button(root,background="white",image=img_logo)
+button_logo.place(x=50,y=405)
 
 # follow action 
 canvas.bind("<B1-Motion>", handle_drag)
